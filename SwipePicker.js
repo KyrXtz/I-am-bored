@@ -28,7 +28,7 @@ const SwipePicker = ( { items, onChange, initialSelectedIndex = null, width, hei
 
 	if ( height ) {
 		listHeight = height;
-		itemHeight = listHeight ;
+		itemHeight = listHeight /5 ;
 	}
 
 	const styles = StyleSheet.create( {
@@ -45,7 +45,7 @@ const SwipePicker = ( { items, onChange, initialSelectedIndex = null, width, hei
 		},
 		pickerGradient: {
 			position: 'absolute',
-			height:  0.5*itemHeight,
+			height:  2*itemHeight,
 			width: '100%'
 		},
 		topGradient: {
@@ -59,9 +59,23 @@ const SwipePicker = ( { items, onChange, initialSelectedIndex = null, width, hei
 	const flatList = useRef( null );
 
 	let extendedItems = [
-		
+		{
+			value: -11,
+			label: ''
+		},
+		{
+			value: -12,
+			label: ''
+		},
 		...items,
-		 ];
+		{
+			value: -21,
+			label: ''
+		},
+		{
+			value: -22,
+			label: ''
+		} ];
 
 	return (
 		<View style={ styles.list } >

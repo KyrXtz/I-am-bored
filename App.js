@@ -12,6 +12,7 @@ console.disableYellowBox = true;
 import Swiper from 'react-native-swiper'
 import { BackHandler } from 'react-native';
 import SwipePicker from './SwipePicker'
+//import SwipePicker from 'react-native-swipe-picker'
 
 import * as Font from 'expo-font'
 //import { FlatGrid } from 'react-native-super-grid';
@@ -56,15 +57,17 @@ const styles = StyleSheet.create({
     padding: 10
   },
   ImageIconStyle:{
-    scaleX:0.8 , 
-    scaleY:0.8
+    // scaleX:0.5 , 
+    // scaleY:0.5,
+   // transform:[{ scale: 0.5 }]
+        
   },swipepicker:{
     alignContent:'flex-end' ,
     backgroundColor:'#000000'
 
   },swipePickerStyle:{
     backgroundColor:'#fc56f3',
-    borderRadius:80
+    borderRadius:80,
   },
 })
 
@@ -264,21 +267,27 @@ ResetWikiChoice(){
 
 
             {this.state.fontloaded?
-            <Text style={styles.text}>Give me something to read  </Text>
+            <Text  style={styles.text }>Give me something to read  </Text>
             :<ActivityIndicator></ActivityIndicator>}
+            
             <TouchableOpacity  /*onPress={_smthToRead}*/ onPress={() => this.setState({ showWebView: 0 })} alignContent='Center' >
               <Image  source={require('./Red-Button-Transparent-Image.png')}
-                style={styles.ImageIconStyle} >
+                style={styles.ImageIconStyle  } >
 
               </Image>
             </TouchableOpacity>
+            <Text height={200}></Text>
+          <Text height={200}></Text>
+          <Text height={200}></Text>
+          <Text height={200}></Text>
+          
             {this.WikichoiceSet ==''?
- <View style = {{alignSelf:'flex-end'}}> 
+ <View  style = {{alignSelf:'flex-end'}}> 
  <View style={styles.swipePickerStyle}>
             <SwipePicker 
               items={DATAorig}
               onChange={({index,item}) => this.onChangeCateg1(index,item)}
-              height={ 50 }
+              height={ 80 }
               width={ 220 }
             /> 
             </View>
@@ -286,7 +295,7 @@ ResetWikiChoice(){
             <SwipePicker  
               items={this.DATAFirstCateg}
               onChange={({index,item}) => this.onChangeCateg2(index,item)}
-              height={ 50 }
+              height={ 80 }
               width={ 220 }
             /> 
             </View>
@@ -294,7 +303,7 @@ ResetWikiChoice(){
             <SwipePicker  
               items={this.DATASecondCateg}
               onChange={({index,item}) => this.onChangeCateg3(index,item)}
-              height={ 50 }
+              height={ 80 }
               width={ 220 }
             /> 
             </View>
